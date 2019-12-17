@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-dashBoard',
+  //template : '<app-pie-chart></app-pie-chart>',
   templateUrl: './dashBoard.component.html',
   styleUrls: [ './dashBoard.component.css' ]
 })

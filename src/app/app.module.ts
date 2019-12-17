@@ -12,7 +12,10 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { LoginComponent } from './Login/login.component';
 import { SignUpComponent } from './SignUp/signUp.component';
+import { PieChartComponent } from './DashBoard/pieChart.component';
 import { DashBoardComponent } from './DashBoard/dashBoard.component';
+
+import { ChartsModule } from 'ng2-charts';
 
 
 import {NgModule} from '@angular/core';
@@ -111,14 +114,14 @@ import { MatPaginatorModule } from '@angular/material';
     PortalModule,
     ScrollingModule,
   ],
-  imports: [ BrowserModule, FormsModule, MatTableModule, MatPaginatorModule,
+  imports: [ BrowserModule, FormsModule, MatTableModule, MatPaginatorModule,ChartsModule,
   BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
-  declarations: [ AppComponent, HelloComponent, LoginComponent , SignUpComponent, DashBoardComponent],
+  declarations: [ AppComponent, HelloComponent, LoginComponent , SignUpComponent, DashBoardComponent, PieChartComponent],
   bootstrap:    [ AppComponent ]
 })
 
