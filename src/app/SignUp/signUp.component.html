@@ -11,26 +11,26 @@
 </nav>
 
 <div class="container" style="width : 80%; margin-top : 50px">
-	<form>
+	<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
     <div class="form-group">
 			<label for="enterName"><b>Name</b></label>
-			<input type="text" class="form-control" id="enterName" aria-describedby="emailHelp" placeholder="Enter Name">
+			<input type="text" class="form-control" id="enterName" formControlName="name" aria-describedby="emailHelp" placeholder="Enter Name">
   </div>
 		<div class="form-group">
 			<label for="exampleInputEmail1"><b>Email address</b></label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			<input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
 			<label for="enterID"><b>Employ ID</b></label>
-			<input type="text" class="form-control" id="enterID" aria-describedby="emailHelp" placeholder="Enter Employ ID">
+			<input type="text" formControlName="employId" class="form-control" id="enterID" aria-describedby="emailHelp" placeholder="Enter Employ ID">
   </div>
 			<div class="form-group">
 				<label for="exampleInputPassword1"><b>Password</b></label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				<input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
   </div>
   <div class="form-group">
 				<label for="EnterCNFPWD"><b>Confirm Password</b></label>
-				<input type="password" class="form-control" id="EnterCNFPWD" placeholder="Confirm Password">
+				<input type="password" formControlName="confirmPWD" class="form-control" id="EnterCNFPWD" placeholder="Confirm Password">
   </div>
 				<button type="submit" class="btn btn-success btn-block" style="margin-top : 30px">Submit</button>
 	</form>

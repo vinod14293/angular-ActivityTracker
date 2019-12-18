@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TablePaginationExample} from './app/table-pagination-example';
 import { RouterModule, Routes } from '@angular/router';
 
+//for forms Module
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -114,7 +116,7 @@ import { MatPaginatorModule } from '@angular/material';
     PortalModule,
     ScrollingModule,
   ],
-  imports: [ BrowserModule, FormsModule, MatTableModule, MatPaginatorModule,ChartsModule,
+  imports: [ BrowserModule, FormsModule, MatTableModule, ReactiveFormsModule, MatPaginatorModule,ChartsModule,
   BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
