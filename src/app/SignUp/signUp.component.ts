@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SignUp } from '../Services/signUp/signUp.service';
+import { SignUpModel } from '../Models/signUp';
 
 @Component({
   selector: 'app-signUp',
@@ -8,6 +9,8 @@ import { SignUp } from '../Services/signUp/signUp.service';
   styleUrls: [ './signUp.component.css' ]
 })
 export class SignUpComponent  {
+
+  signUpModel : SignUpModel;
 
 constructor( private fb : FormBuilder, private signUpService : SignUp){
 }
@@ -21,7 +24,7 @@ signUpForm = this.fb.group({
 });
 
 signUp(){
-  console.log(this.signUpForm.value);
+  console.log(this.signUpModel);
   this.signUpService.signUp();
 }
 
