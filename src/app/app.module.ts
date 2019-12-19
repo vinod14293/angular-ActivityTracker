@@ -16,6 +16,7 @@ import { LoginComponent } from './Login/login.component';
 import { SignUpComponent } from './SignUp/signUp.component';
 import { PieChartComponent } from './DashBoard/pieChart.component';
 import { DashBoardComponent } from './DashBoard/dashBoard.component';
+import { LogActivity } from './LogActivity/logActivity.component';
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -68,6 +69,7 @@ import { MatPaginatorModule } from '@angular/material';
   { path: 'login', component: LoginComponent },
   { path : 'signUp', component: SignUpComponent},
   { path : 'dashBoard', component: DashBoardComponent},
+  { path : 'logActivity', component: LogActivity},
   { path : '', component: LoginComponent, pathMatch: 'full'}
 ];
 
@@ -123,7 +125,7 @@ import { MatPaginatorModule } from '@angular/material';
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
-  declarations: [ AppComponent, HelloComponent, LoginComponent , SignUpComponent, DashBoardComponent, PieChartComponent],
+  declarations: [ AppComponent, HelloComponent, LoginComponent , LogActivity, SignUpComponent, DashBoardComponent, PieChartComponent],
   bootstrap:    [ AppComponent ]
 })
 

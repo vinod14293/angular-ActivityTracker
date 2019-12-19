@@ -5,11 +5,11 @@ import { SignUpModel } from '../Models/signUp';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signUp',
-  templateUrl: './signUp.component.html',
-  styleUrls: [ './signUp.component.css' ]
+  selector: 'app-logActivity',
+  templateUrl: './logActivity.component.html',
+  styleUrls: [ './logActivity.component.css' ]
 })
-export class SignUpComponent  {
+export class LogActivity  {
 
   signUpModel : SignUpModel;
   error : any;
