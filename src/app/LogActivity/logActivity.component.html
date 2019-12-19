@@ -14,7 +14,7 @@
 	<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
     <div class="form-group">
     <label for="exampleFormControlSelect1">Select Category</label>
-    <select class="form-control" id="FormControlSelect1">
+    <select class="form-control" id="exampleFormControlSelect1">
       <option value="#">select</option>
       <option value="Development">Development</option>
       <option value="SIT">SIT</option>
@@ -23,21 +23,17 @@
       <option value="Learning">Learning</option>
     </select>
   </div>
-	<div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input id="datepicker" width="276" />
-      </div>
-  <div class="form-group">
-			<label for="enterID"><b>Employ ID</b></label>
-			<input type="text" formControlName="employId" class="form-control" id="enterID" aria-describedby="emailHelp" placeholder="Enter Employ ID">
+<div class="form-group">
+			<label for="enterDate"><b>Date</b></label>
+			<input type="date" formControlName="enterDate" class="form-control" id="enterDate" aria-describedby="emailHelp" placeholder="Enter Employ ID">
   </div>
 			<div class="form-group">
-				<label for="exampleInputPassword1"><b>Password</b></label>
-				<input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+				<label for="description"><b>Activity Description</b></label>
+				<input type="textarea" class="form-control" formControlName="description" id="description" placeholder="Description goes here">
   </div>
   <div class="form-group">
-				<label for="EnterCNFPWD"><b>Confirm Password</b></label>
-				<input type="password" formControlName="confirmPWD" class="form-control" id="EnterCNFPWD" placeholder="Confirm Password">
+				<label for="duration"><b>Duration</b></label>
+				<input type="number" formControlName="duration" class="form-control" id="duration" placeholder="Enter Duration">
   </div>
 				<button type="submit" class="btn btn-success btn-block" style="margin-top : 30px">Submit</button>
 	</form>
