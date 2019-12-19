@@ -19,10 +19,8 @@ export class LoginComponent  {
     password : ['']
   });
 
-
-
   onSubmit(){
     console.log(this.loginForm.value);
-    this.login.authenticate(this.loginForm.value.email,this.loginForm.value.password);
+    this.login.authenticate(this.loginForm.value);
   }
 }

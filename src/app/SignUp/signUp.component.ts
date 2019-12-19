@@ -24,8 +24,8 @@ signUpForm = this.fb.group({
 });
 
 signUp(){
-  console.log(this.signUpModel);
-  this.signUpService.signUp();
+  //console.log(this.signUpForm.value);
+  this.signUpService.signUp(this.signUpForm.value);
 }
 
 }

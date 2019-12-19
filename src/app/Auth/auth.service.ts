@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Login } from '../Models/login';
+import {  }
 
 
 @Injectable({providedIn : 'root'})
@@ -7,11 +9,13 @@ export class Authentication{
 constructor(){
 }
 
-authenticate(email : string, password : string){
+authenticate(login : Login){
 console.log('Entered inside authentication method');
-  if(email == "vinod@gmail.com" && password == "vinod123"){
+  if(login.email == "vinod@gmail.com" && login.password == "vinod123"){
     console.log('user authenticated');
   }
+
+
 }
 
 }
