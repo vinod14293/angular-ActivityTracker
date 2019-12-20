@@ -34,6 +34,7 @@ export class LoginComponent  {
         this.router.navigate(['/dashBoard']);
       },
       error => {
+        console.log("Error logged in login component"+this.error);
         this.error = error.error.error.message;
         if(error.error.error.message == 'EMAIL_NOT_FOUND'){
             this.error="Email doesn't exists";
@@ -43,7 +44,7 @@ export class LoginComponent  {
         }
         
         this.isLoading = false;
-        console.log('error is '+error.error.error.message);
+        //console.log('error is '+error.error.error.message);
       }
     )
     ;

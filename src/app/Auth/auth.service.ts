@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { SignUp } from '../Models/signUp';
-import { HttpClient } from '@angular/common/http';
+import { User } from '../Models/User';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AuthResponseData } from '../Models/AuthResponseData';
-import { tap } from 'rxjs/operators';
+import { tap,catchError  } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
+import { throwError,Observable } from 'rxjs';
 
 @Injectable({providedIn : 'root'})
 export class Authentication{
-user = new Subject<SignUp>();
+//User = new Subject<User>();
+User1 = new Subject<string>();
+
 
 constructor(private http : HttpClient){
 }
@@ -18,12 +22,16 @@ console.log('Entered inside authentication method');
   email : login.email,
   password : login.password,
   returnSecureToken : true
-}).pipe(tap(data=>{
-console.log(data);
-const expirationdate = new Date(new Date().getTime + +data.expiresIn * 1000);
-const user = new SignUp(data.email, data.localId, data.idToken, data.expirationdate);
-this.user.next(user);
+}).pipe(catchError(this.handleError),tap(data=>{
+//console.log("data to be disaplyed"+ data.email+ data.localId+ data.idToken+ data.expiresIn);
+this.User1.next("vinod");
 }));
+
+}
+
+private handleError(errorRes : HttpErrorResponse){
+  console.log(errorRes);
+return throwError(errorRes);
 }
 
 }

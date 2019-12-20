@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {Authentication} from '../Auth/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-dashBoard',
@@ -8,8 +10,14 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './dashBoard.component.html',
   styleUrls: [ './dashBoard.component.css' ]
 })
-export class DashBoardComponent implements OnInit {
-  name = 'dashBoard';
+export class DashBoardComponent implements OnInit, OnDestroy {
+
+  welcomeMessage : string = "";
+  private userSub : Subscription;
+
+  constructor(private auth : Authentication){
+
+  }
 
  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -18,7 +26,13 @@ export class DashBoardComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+ 
   }
+
+  ngOnDestroy(){
+    //this.auth.User1.unsubscribe();
+  }
+
 }
 
 export interface PeriodicElement {
