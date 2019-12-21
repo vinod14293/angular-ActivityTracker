@@ -4,13 +4,13 @@ import { User } from '../Models/User';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AuthResponseData } from '../Models/AuthResponseData';
 import { tap,catchError  } from 'rxjs/operators';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs';
 import { throwError,Observable } from 'rxjs';
 
 @Injectable({providedIn : 'root'})
 export class Authentication{
 //User = new Subject<User>();
-User1 = new Subject<string>();
+User1 = new BehaviorSubject<User>({});
 
 
 constructor(private http : HttpClient){
@@ -23,8 +23,10 @@ console.log('Entered inside authentication method');
   password : login.password,
   returnSecureToken : true
 }).pipe(catchError(this.handleError),tap(data=>{
-//console.log("data to be disaplyed"+ data.email+ data.localId+ data.idToken+ data.expiresIn);
-this.User1.next("vinod");
+  const expirationDate = new Date( new Date().getTime() +  +data.expiresIn*1000 );
+  const user = new User(data.email, data.localId, data.idToken, expirationDate);
+  console.log("user afte construction "+user)
+  this.User1.next(user);
 }));
 
 }

@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -8,7 +8,6 @@ import {TablePaginationExample} from './app/table-pagination-example';
 import { RouterModule, Routes } from '@angular/router';
 
 //for forms Module
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -17,6 +16,7 @@ import { SignUpComponent } from './SignUp/signUp.component';
 import { PieChartComponent } from './DashBoard/pieChart.component';
 import { DashBoardComponent } from './DashBoard/dashBoard.component';
 import { LogActivity } from './LogActivity/logActivity.component';
+import { AuthInterceptor } from './Auth/authInteceptor';
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -118,7 +118,7 @@ import { MatPaginatorModule } from '@angular/material';
     PortalModule,
     ScrollingModule,
   ],
-  imports: [ BrowserModule, FormsModule, MatTableModule, ReactiveFormsModule, MatPaginatorModule,ChartsModule,
+  imports: [ BrowserModule, FormsModule, MatTableModule,  ReactiveFormsModule, MatPaginatorModule,ChartsModule,
   BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -126,7 +126,12 @@ import { MatPaginatorModule } from '@angular/material';
     MatNativeDateModule,
     ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
   declarations: [ AppComponent, HelloComponent, LoginComponent , LogActivity, SignUpComponent, DashBoardComponent, PieChartComponent],
-  bootstrap:    [ AppComponent ]
+ providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
+  bootstrap:    [ AppComponent ],
 })
 
 export class AppModule { 
