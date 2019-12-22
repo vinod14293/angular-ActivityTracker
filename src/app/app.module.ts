@@ -17,7 +17,7 @@ import { PieChartComponent } from './DashBoard/pieChart.component';
 import { DashBoardComponent } from './DashBoard/dashBoard.component';
 import { LogActivity } from './LogActivity/logActivity.component';
 import { AuthInterceptor } from './Auth/authInteceptor';
-import { AuthGuard } from './Auth/auth.guard';
+
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -66,12 +66,16 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatPaginatorModule } from '@angular/material';
 
+
+import { AuthGuard } from './Auth/ath.guard';
+
   const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path : 'signUp', component: SignUpComponent},
   { path : 'dashBoard',
    component: DashBoardComponent,
-   canActivate : [ AuthGuard ]},
+  canActivate : [ AuthGuard ]
+  },
   { path : 'logActivity', component: LogActivity},
   { path : '', component: LoginComponent, pathMatch: 'full'}
 ];

@@ -7,10 +7,10 @@ export class AuthGuard implements CanActivate{
 
 constructor(private router:Router, private auth : Authentication){
 }
-user : string;
+//user : string;
 
 canActivate(route : ActivatedRouteSnapshot, state : RouterStateSnapshot){
-this.auth.User1.subscribe(data =>
+/*this.auth.User1.subscribe(data =>
 {
   console.log("email extracted from subscribed data "+data.email);
 this.user=data.email;
@@ -23,7 +23,9 @@ if (this.user != null || this.user != ""){
 }
 else {
   this.router.navigate(['/login']);
-}
+}*/
+
+return true;
 
 }
 
