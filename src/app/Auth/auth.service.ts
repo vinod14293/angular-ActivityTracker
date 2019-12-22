@@ -11,7 +11,7 @@ import { throwError,Observable } from 'rxjs';
 export class Authentication{
 //User = new Subject<User>();
 User1 = new BehaviorSubject<User>({});
-
+userSaved : User;
 
 constructor(private http : HttpClient){
 }
