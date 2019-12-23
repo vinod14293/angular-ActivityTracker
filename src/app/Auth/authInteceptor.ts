@@ -8,6 +8,10 @@ import { Authentication } from './auth.service';
 export class AuthInterceptor implements HttpInterceptor{
 
 constructor(private auth : Authentication){
+  this.auth.User1.subscribe(data =>
+  {
+      console.log("user extracted from auth interceptor constructor "+JSON.stringify(data));
+  })
 }
 
 intercept( req : HttpRequest<any>, next : HttpHandler) : Observable<HttpEvent<any>>{
