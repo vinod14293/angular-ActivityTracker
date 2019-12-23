@@ -9,11 +9,25 @@ import { throwError,Observable } from 'rxjs';
 
 @Injectable({providedIn : 'root'})
 export class Authentication{
-//User = new Subject<User>();
-User1 = new BehaviorSubject<User>({});
-userSaved : User;
+User1 = new BehaviorSubject<User>(null);
 
 constructor(private http : HttpClient){
+}
+
+login(){
+
+}
+
+logout(){
+
+}
+
+autoLogin(){
+
+}
+
+autoLogOut(){
+
 }
 
 authenticate(login : SignUp){
@@ -25,8 +39,7 @@ console.log('Entered inside authentication method');
 }).pipe(catchError(this.handleError),tap(data=>{
   const expirationDate = new Date( new Date().getTime() +  +data.expiresIn*1000 );
   const user = new User(data.email, data.localId, data.idToken, expirationDate);
-  console.log("user afte construction "+user)
-  this.userSaved = user;
+  console.log("user afte construction "+JSON.stringify(user));
   this.User1.next(user);
 }));
 

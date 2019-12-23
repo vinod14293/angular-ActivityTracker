@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './dashBoard.component.html',
   styleUrls: [ './dashBoard.component.css' ]
 })
-export class DashBoardComponent implements OnInit, OnDestroy {
+export class DashBoardComponent implements OnInit {
 
   welcomeMessage : string = "";
   private userSub : Subscription;
@@ -29,8 +29,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
  
   }
 
-  ngOnDestroy(){
-    //this.auth.User1.unsubscribe();
+  logOut(){
+    this.auth.User1.next(null);
   }
 
 }
