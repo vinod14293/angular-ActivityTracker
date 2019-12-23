@@ -23,10 +23,10 @@
 </nav>
 
 <div class="container" style="width : 80%; margin-top : 50px">
-	<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+	<form [formGroup]="signUpForm" (ngSubmit)="logActivity()">
     <div class="form-group">
     <label for="exampleFormControlSelect1">Select Category</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" formControlName="activityCategory" id="exampleFormControlSelect1">
       <option value="#">select</option>
       <option value="Development">Development</option>
       <option value="SIT">SIT</option>

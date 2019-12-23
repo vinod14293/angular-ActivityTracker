@@ -18,35 +18,14 @@ constructor( private fb : FormBuilder, private signUpService : SignUp, private r
 }
 
 signUpForm = this.fb.group({
-  name : [''],
-  employId : [''],
-  email : [''],
-  password : [''],
-  confirmPWD : ['']
+  activityCategory : [''],
+  enterDate : [''],
+  description : [''],
+  duration : [''],
 });
 
-signUp(){
-  //console.log(this.signUpForm.value);
-  this.signUpService.signUp(this.signUpForm.value).subscribe(
-      data => {
-        console.log(data);
-        //this.isLoading = false;
-        this.router.navigate(['/dashBoard']);
-      },
-      error => {
-        this.error = error.error.error.message;
-        if(error.error.error.message == 'EMAIL_NOT_FOUND'){
-            this.error="Email doesn't exists";
-        }
-        if(error.error.error.message == 'INVALID_PASSWORD'){
-            this.error="Password is wrong";
-        }
-        
-        //this.isLoading = false;
-        console.log('error is '+error.error.error.message);
-      }
-    )
-    ;
+logActivity(){
+    console.log(this.signUpForm.value);
 }
 
 }
