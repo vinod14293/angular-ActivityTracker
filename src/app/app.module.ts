@@ -74,7 +74,7 @@ import { AuthGuard } from './Auth/ath.guard';
   { path : 'signUp', component: SignUpComponent},
   { path : 'dashBoard',
    component: DashBoardComponent,
-  canActivate : [ AuthGuard ]
+  //canActivate : [ AuthGuard ]
   },
   { path : 'logActivity', component: LogActivity},
   { path : '', component: LoginComponent, pathMatch: 'full'}

@@ -10,6 +10,18 @@
 	</form>
 </nav>
 
+<nav class="navbar navbar-light"
+	style="background-color: black">
+  <header>
+
+	<a class="navbar-brand" href="#"
+		style="margin-left : 50px ; color : white; font-size : 15px " routerLink="/dashBoard"><b>Dashboard</b></a>
+>
+	<a class="navbar-brand" href="#"
+		style="margin-left : 20px ; color : white; font-size : 15px " routerLink="/logActivity"><b>Log Activity</b></a>
+    </header>
+</nav>
+
 <div class="container" style="width : 80%; margin-top : 50px">
 	<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
     <div class="form-group">
