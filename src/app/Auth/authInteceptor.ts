@@ -14,8 +14,8 @@ intercept( req : HttpRequest<any>, next : HttpHandler) : Observable<HttpEvent<an
 
 return this.auth.User1.pipe(
   take(1),
-  exhaustMap(user => {
-    console.log("user logged here in interceptor "+JSON.stringify(user));
+  exhaustMap(User1 => {
+    console.log("user logged here in interceptor "+JSON.stringify(User1));
     const nextReq = req.clone( {params: new HttpParams().set('auth','vinod')});
   return next.handle(nextReq); 
   }))
