@@ -3,7 +3,7 @@ import { SignUp } from '../Models/signUp';
 import { User } from '../Models/User';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AuthResponseData } from '../Models/AuthResponseData';
-import { tap,catchError  } from 'rxjs/operators';
+import { tap,catchError,take  } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { throwError,Observable } from 'rxjs';
 
@@ -26,6 +26,7 @@ console.log('Entered inside authentication method');
   const expirationDate = new Date( new Date().getTime() +  +data.expiresIn*1000 );
   const user = new User(data.email, data.localId, data.idToken, expirationDate);
   console.log("user afte construction "+user)
+  this.userSaved = user;
   this.User1.next(user);
 }));
 
