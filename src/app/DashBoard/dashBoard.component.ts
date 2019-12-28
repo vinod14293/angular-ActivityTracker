@@ -27,8 +27,14 @@ export class DashBoardComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
- 
-
+    this.dashServ.loadDashBoard().subscribe(
+      data => {
+        console.log("respose recived fom getEmploy end point "+JSON.stringify(data));
+      },
+      error => {
+        console.log("Error recieved for get Employ end point "+error);
+      }
+    );
   }
 
   logOut(){
