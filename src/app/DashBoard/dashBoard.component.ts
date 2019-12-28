@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {Authentication} from '../Auth/auth.service';
+import {DashBaordSevice} from '../Services/DashBoardService/dashBoard.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -15,7 +16,7 @@ export class DashBoardComponent implements OnInit {
   welcomeMessage : string = "";
   private userSub : Subscription;
 
-  constructor(private auth : Authentication){
+  constructor(private auth : Authentication, private dashServ : DashBaordSevice){
 
   }
 
@@ -27,6 +28,7 @@ export class DashBoardComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
  
+
   }
 
   logOut(){

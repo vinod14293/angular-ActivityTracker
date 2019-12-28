@@ -8,19 +8,18 @@ import { Authentication } from './auth.service';
 export class AuthInterceptor implements HttpInterceptor{
 
 constructor(private auth : Authentication){
-  this.auth.User1.subscribe(data =>
-  {
-      console.log("user extracted from auth interceptor constructor "+JSON.stringify(data));
-  })
 }
 
 intercept( req : HttpRequest<any>, next : HttpHandler) : Observable<HttpEvent<any>>{
 
 return this.auth.User1.pipe(
   take(1),
-  exhaustMap(User1 => {
-    console.log("user logged here in interceptor "+JSON.stringify(User1));
-    const nextReq = req.clone( {params: new HttpParams().set('auth','vinod')});
+  exhaustMap(user => {
+    if (user == null){
+      return next.handle(req);
+    }
+    console.log("user logged here in interceptor "+JSON.stringify(user.token));
+    const nextReq = req.clone( {headers: new HttpHeaders().set('Authorization',user.token)});
   return next.handle(nextReq); 
   }))
 

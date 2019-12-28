@@ -18,11 +18,11 @@ constructor( private fb : FormBuilder, private signUpService : SignUp, private r
 }
 
 signUpForm = this.fb.group({
-  name : [''],
-  employId : [''],
+ // name : [''],
+  //employId : [''],
   email : [''],
   password : [''],
-  confirmPWD : ['']
+  //confirmPWD : ['']
 });
 
 signUp(){

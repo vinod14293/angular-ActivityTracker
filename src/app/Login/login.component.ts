@@ -29,7 +29,7 @@ export class LoginComponent  {
     console.log(this.loginForm.value);
     this.login.authenticate(this.loginForm.value).subscribe(
       data => {
-        console.log("respone recieved "+data);
+        console.log("respone recieved "+JSON.stringify(data));
         this.isLoading = false;
         this.router.navigate(['/dashBoard']);
       },
